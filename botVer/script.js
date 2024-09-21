@@ -106,7 +106,7 @@ async function fetchData() {
         document.getElementById('info').innerHTML = "情報を取得中...";
 
         const locations = [
-            { coords: [126.0, 21.4], zoom: 5.0, name: '台風がよく発生するところ' },
+            { coords: [126.0, 21.4], zoom: 5.0, name: '台湾' },
             { coords: [126.8, 25.5], zoom: 6.0, name: '沖縄' },
             { coords: [129.9, 32.0], zoom: 6.5, name: '熊本' },
             { coords: [130.5, 35.7], zoom: 6.0, name: '韓国' },
@@ -128,7 +128,7 @@ async function fetchData() {
                 zoom: locations[index].zoom,
                 essential: true,
                 speed: 0.5,
-                curve: 1.2
+                curve: 1.5
             });
             
             setTimeout(() => animateMap(index + 1), 8000);
@@ -142,8 +142,7 @@ fetchData();
 setInterval(fetchData, fetchInterval);
 
 setInterval(() => {
-    document.getElementById('info').innerHTML = `Version: β0.0.1<br>
-                                                 雲のデータ: ${formatDateTime(validTime)}<br>
+    document.getElementById('info').innerHTML = `雨雲データ: ${formatDateTime(validTime)}<br>
                                                  現在時刻: ${displayCurrentTime()}<br>
                                                  現在表示している位置はおおよそ ${currentLocationName} です。`;
 }, 1000);
